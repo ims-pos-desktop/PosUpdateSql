@@ -73,7 +73,6 @@
 /Reports/RSP_DayEndReport.sql | 05 DEC 2023
 /Reports/RecipeReport/OSP_GetReceipeConsumptionList.sql | 07 DEC 2023
 /PURPROD_VIEW.sql | 08 DEC 2023
-/CustomerType.sql | 08 DEC 2023
 /FiscalYearUpdate.sql | 09 DEC 2023
 /Reports/StockValuationReport/RSP_STOCKVALUATION_FIFO.sql | 10 DEC 2023
 /RateGroup/OSP_GetItemAltUnits.sql | 11 DEC 2023
@@ -92,7 +91,6 @@
 /TRNMAIN_BRANCH_OUT.sql | 31 DEC 2024
 /TRNPROD_BRANCH_OUT.sql | 01 JAN 2025
 /OSP_GetBillPreviewProd.sql | 02 JAN 2025
-/vwMemberProfile.sql | 02 JAN 2025
 /RateGroup/hideRawItemsInBilling.sql | 03 JAN 2025
 /RateGroup/OSP_GETITEMLIST.sql | 03 JAN 2025
 /GiftCardMaster.sql | 04 JAN 2025
@@ -107,7 +105,9 @@
 /OSP_GetSalesOrderDetail.sql | 13 JAN 2025
 /SETTINGS.sql | 14 JAN 2025
 /OSP_GetCounterOrderAdvance.sql | 11 FEB 2025
-/RMD_OrderMain.sql | 11 FEB 2025
 /SalesMan.sql | 18 FEB 2025
 /vwBarcode_Detail.sql | 18 FEB 2025
 /RateGroup/OSP_GetItemBatch.sql | 3 MAR 2025
+/RMD_OrderMain.sql | 18 MAR 2025
+/vwMemberProfile.sql | 18 MAR 2025
+/CustomerType.sql | 18 MAR 2025
