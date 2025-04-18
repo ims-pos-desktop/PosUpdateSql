@@ -48,6 +48,8 @@
 /Reports/DirectorsApp/RSP_TakeAway_Vs_DineIn_Sales.txt
 /Reports/DirectorsApp/RSP_TopSellingItems.txt
 /Reports/DirectorsApp/RSP_CoversOccupiedSummary_Report.txt
+/Reports/DirectorsApp/RSP_OccupiedTables.sql
+/Reports/DirectorsApp/RSP_TableOrders.sql
 /Reports/DirectorsApp/DirectorsAppTables.txt
 /Reports/DirectorsApp/RSP_MonthlySalesComparision.txt
 /Reports/GetParticularForLedger.txt
