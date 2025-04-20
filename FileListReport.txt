@@ -56,7 +56,7 @@
 ---/Reports/GroupLedger/NSP_GROUPLEDGER.txt
 ---/Reports/GroupLedger/RSP_GROUPLEDGER.txt
 /Reports/ItemExpiryReport/RSP_ITEMEXPIRYREPORT.txt
-/Reports/ItemExpiryReport/RSP_ITEMEXPIRYREPORT_BATCHWISE.txt
+/Reports/ItemExpiryReport/RSP_ITEMEXPIRYREPORT_BATCHWISE.sql
 ---/Reports/ItemLocation.txt
 ---/Reports/JournalBookReport/NSP_JOURNALBOOK.txt
 /Reports/JournalBookReport/NSP_JOURNALBOOK_ACID.sql
