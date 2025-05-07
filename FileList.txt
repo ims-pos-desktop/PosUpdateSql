@@ -181,6 +181,7 @@ tblBillTender.txt
 /tblMasterSequencePrimaryKey/AlterPrimaryKey.txt
 tblPartyCategory.txt
 tblTicket.txt
+tblUserWorkingLog.sql
 TRAN_A_ACID.txt
 TRAN_A_ACID_CHECK.txt
 /Triggers/ABBPROD_COGS_UPDATE.txt
