@@ -100,7 +100,6 @@
 /DIVISION.sql | 10 JAN 2025
 /SP_GETSCHEMEDISCOUNT.txt | 11 JAN 2025
 /OSP_GetSalesOrderDetail.sql | 13 JAN 2025
-/SETTINGS.sql | 14 JAN 2025
 /OSP_GetCounterOrderAdvance.sql | 11 FEB 2025
 /SalesMan.sql | 18 FEB 2025
 /vwBarcode_Detail.sql | 18 FEB 2025
@@ -113,3 +112,5 @@
 /NepDate1.sql | 27 MAR 2025
 /getPrintFormat_Order.SQL | 01 APR 2025
 /tblUserWorkingLog.sql | 02 APR 2025
+/SETTINGS.sql | 22 MAY 2025
+/Triggers/PaymentModes_IncludeInExcessShortCalculation_Update.sql | 22 MAY 2025
