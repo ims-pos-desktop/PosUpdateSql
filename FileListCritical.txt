@@ -71,7 +71,6 @@
 /Reports/RSP_DayEndReport.sql | 05 DEC 2023
 /Reports/RecipeReport/OSP_GetReceipeConsumptionList.sql | 07 DEC 2023
 /PURPROD_VIEW.sql | 08 DEC 2023
-/FiscalYearUpdate.sql | 09 DEC 2023
 /Reports/StockValuationReport/RSP_STOCKVALUATION_FIFO.sql | 10 DEC 2023
 /RateGroup/OSP_GetItemAltUnits.sql | 11 DEC 2023
 /Reports/RSP_DUEVOUCHERREPORT.sql | 12 DEC 2023
@@ -114,3 +113,4 @@
 /tblUserWorkingLog.sql | 02 APR 2025
 /SETTINGS.sql | 22 MAY 2025
 /Triggers/PaymentModes_IncludeInExcessShortCalculation_Update.sql | 22 MAY 2025
+/FiscalYearUpdate.sql | 15 JUN 2025
