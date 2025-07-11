@@ -56,7 +56,6 @@
 /SP_GetItemWisePointCalculation.sql | 12 NOV 2023
 /USERPROFILESABB.sql | 14 NOV 2023
 /RMD_KOTMAIN_STATUS.sql | 14 NOV 2023
-/UserProfiles.sql | 14 NOV 2023
 /Reports/ReportMaster.sql | 16 NOV 2023
 /KotProd_ChoiceItems.sql | 17 NOV 2023
 /CapitalPurchaseConstraint.sql | 21 NOV 2023
@@ -69,7 +68,6 @@
 /CurrencyNumberToWords.sql | 30 NOV 2023
 /OSP_GetSupplierWiseItemForPO.sql | 03 DEC 2023
 /Reports/RSP_DayEndReport.sql | 05 DEC 2023
-/Reports/RecipeReport/OSP_GetReceipeConsumptionList.sql | 07 DEC 2023
 /PURPROD_VIEW.sql | 08 DEC 2023
 /Reports/StockValuationReport/RSP_STOCKVALUATION_FIFO.sql | 10 DEC 2023
 /RateGroup/OSP_GetItemAltUnits.sql | 11 DEC 2023
@@ -114,3 +112,6 @@
 /SETTINGS.sql | 22 MAY 2025
 /Triggers/PaymentModes_IncludeInExcessShortCalculation_Update.sql | 22 MAY 2025
 /FiscalYearUpdate.sql | 15 JUN 2025
+/UserProfiles.sql | 11 JUL 2025
+/Reports/RecipeReport/OSP_GetReceipeConsumptionList.sql | 11 JUL 2025
+/Reports/RecipeReport/RSP_PendingConsumptionStockDetail.sql | 11 JUL 2025
