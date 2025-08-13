@@ -115,3 +115,5 @@
 /Reports/RecipeReport/OSP_GetReceipeConsumptionList.sql | 11 JUL 2025
 /Reports/RecipeReport/RSP_PendingConsumptionStockDetail.sql | 11 JUL 2025
 /FiscalYearUpdate.sql | 19 JUL 2025
+/trnTaxDetails/trnTaxDetails.sql | 13 AUG 2025
+/trnTaxDetails/vwProd_TaxDetails.SQL | AUG 2025
