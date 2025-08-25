@@ -74,7 +74,6 @@
 /Reports/RSP_DUEVOUCHERREPORT.sql | 12 DEC 2023
 /EpaymentStatus.sql | 13 DEC 2023
 /MENUITEM_ECOMMERCE_DETAIL.sql | 14 DEC 2023
-/SETTINGS.sql | 14 DEC 2023
 /BARCODE_DETAIL_STAMP.sql | 19 DEC 2023
 /Membership.sql | 20 NOV 2023
 /vwCustomerProfile.sql | 20 DEC 2023
@@ -117,3 +116,4 @@
 /FiscalYearUpdate.sql | 19 JUL 2025
 /trnTaxDetails/trnTaxDetails.sql | 13 AUG 2025
 /trnTaxDetails/vwProd_TaxDetails.SQL | AUG 2025
+/SETTINGS.sql | 25 AUG 2025
