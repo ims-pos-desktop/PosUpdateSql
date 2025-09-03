@@ -11,7 +11,6 @@
 /vwInactiveInvoices.txt | 28 MAY 2023
 /SettlementModes.txt | 29 MAY 2023
 /KOT_Estimate.sql | 2 JUN 2023
-/OSP_GetDeliveryList.txt | 10 JUL 2023
 /Triggers/INVPROD_WAREHOUSE_CHECK.txt | 14 JUL 2023
 /Triggers/OPPROD_WAREHOUSE_CHECK.txt | 14 JUL 2023
 /Triggers/PURPROD_WAREHOUSE_CHECK.txt | 14 JUL 2023
@@ -117,3 +116,4 @@
 /trnTaxDetails/trnTaxDetails.sql | 13 AUG 2025
 /trnTaxDetails/vwProd_TaxDetails.SQL | AUG 2025
 /SETTINGS.sql | 25 AUG 2025
+/OSP_GetDeliveryList.sql | 03 SEP 2025

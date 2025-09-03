@@ -100,7 +100,7 @@ OSP_ExportBranchTransferOut.txt
 OSP_GenerateGiftVoucher.sql
 OSP_GetBillPreviewProd.sql
 OSP_GetCounterOrderAdvance.sql
-OSP_GetDeliveryList.txt
+OSP_GetDeliveryList.sql
 OSP_GetEditableStock.txt
 OSP_GetStockDetail.sql
 OSP_GetSupplierWiseItemForPO.sql
