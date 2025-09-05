@@ -218,7 +218,7 @@ vwAcList.sql
 vwActiveRecipeMain.sql
 vwActiveRecipeProd.sql
 vwBarcode_Detail.sql
-vwContractPrice.txt
+vwContractPrice.sql
 vwCustomerProfile.sql
 vwMemberProfile.sql
 vwInactiveInvoices.txt
