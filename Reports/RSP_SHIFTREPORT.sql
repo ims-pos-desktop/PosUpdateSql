@@ -1,12 +1,15 @@
 CREATE OR ALTER   PROC[dbo].[RSP_SHIFTREPORT]
 --Declare 
-@DIVISION  varchar(20)='',
-@PHISCALID  varchar(20)=''
+@DIVISION  varchar(20),
+@PHISCALID  varchar(20),
+@FromDate DATE,
+@ToDate DATE,
+@Terminal VARCHAR(3) = '%',
+@User VARCHAR(25) = '%' 
 AS
-/*
-set @DIVISION  ='PKR';
-set @PHISCALID  ='79/80';
-*/
+
+--SELECT @DIVISION  ='MMH', @PHISCALID  ='82/83', @FromDate = '17 JUL 2025', @tOdATE='31 jul 2026', @User = '%', @Terminal = '%';
+
 SELECT  A.DAYSTARTID, 
 	CAST( A.DAYSTARTDATE as date) DAYSTARTDATE, 
 	FORMAT(CAST( A.DAYSTARTDATE as datetime2), N'hh:mm tt') DAYSTARTTIME, 
@@ -17,13 +20,13 @@ SELECT  A.DAYSTARTID,
 	FORMAT(CAST( B.SessionStartDate as datetime2), N'hh:mm tt') SessionStartTime,
 	IIF(B.SessionEndDate is null ,'ACTIVE','CLOSED') SessionStatus,
 	D.BILLS TotalBills,
-	IIF(B.SessionEndDate is null,0,CAST(D.TOTALSALES AS decimal(20,2))) TOTALSALES, 
+	CAST(D.TOTALSALES AS decimal(20,2)) TOTALSALES, 
 	CAST(ISNULL(E.AMOUNT, 0) AS decimal(20,2)) AS COUNTERAMOUNT,
 	CAST(ISNULL(P.AMOUNT, 0) AS decimal(20,2)) AS PAYOUTAMOUNT, 
 	CAST(ISNULL(Q.AMOUNT, 0) AS decimal(20,2)) AS CASHDROPAMOUNT 
 From [DAYS] A 
-JOIN [Session] B ON A.DAYSTARTID=B.DAYSTARTID AND A.DIVISION=B.Division AND A.PhiscalID=B.PhiscalID 
-JOIN SALESTERMINAL c on b.TerminalID=c.INITIAL
+LEFT JOIN [Session] B ON A.DAYSTARTID=B.DAYSTARTID AND A.DIVISION=B.Division AND A.PhiscalID=B.PhiscalID 
+LEFT JOIN SALESTERMINAL c on b.TerminalID=c.INITIAL
 LEFT JOIN 
 ( 
 	SELECT SHIFT SESSIONID,DIVISION,PhiscalID , SUM(BILLS) BILLS,
@@ -48,3 +51,6 @@ LEFT JOIN
 	SELECT SUM(AMOUNT) AMOUNT,DIVISION,SHIFTID,PHISCALID FROM PARTIALSETTLEMENT GROUP BY SHIFTID,DIVISION,PhiscalID
 ) Q ON B.Division=Q.division AND B.SessionID=Q.SHIFTID AND B.PhiscalID=Q.PhiscalID
 WHERE  A.DIVISION =@DIVISION AND A.PHISCALID = @PHISCALID
+	AND  CAST(B.SessionStartDate as date) BETWEEN @FromDate AND @ToDate
+	AND (@Terminal = '%' OR c.INITIAL LIKE @Terminal)
+	AND (@User = '%' OR B.UserID LIKE @User)
