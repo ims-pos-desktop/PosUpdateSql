@@ -117,3 +117,4 @@
 /trnTaxDetails/vwProd_TaxDetails.SQL | AUG 2025
 /SETTINGS.sql | 25 AUG 2025
 /OSP_GetDeliveryList.sql | 03 SEP 2025
+/BarcodePrintVouchers.sql | 15 SEP 2025
