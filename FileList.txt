@@ -102,7 +102,10 @@ OSP_GenerateGiftVoucher.sql
 OSP_GetBillPreviewProd.sql
 OSP_GetCounterOrderAdvance.sql
 OSP_GetDeliveryList.sql
+OSP_GetGRNListForPurchase.sql
 OSP_GetEditableStock.txt
+OSP_GetPurchaseOrderForPurchase.sql
+OSP_GetSalesOrderForDelivery.sql
 OSP_GetStockDetail.sql
 OSP_GetSupplierWiseItemForPO.sql
 OSP_PopulateTblBillTender.sql

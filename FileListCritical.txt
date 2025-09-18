@@ -118,3 +118,6 @@
 /SETTINGS.sql | 25 AUG 2025
 /OSP_GetDeliveryList.sql | 03 SEP 2025
 /BarcodePrintVouchers.sql | 15 SEP 2025
+/OSP_GetSalesOrderForDelivery | 17 SEP 2025
+/OSP_GetGRNListForPurchase.sql | 17 SEP 2025
+OSP_GetPurchaseOrderForPurchase.sql | 17 SEP 2025
