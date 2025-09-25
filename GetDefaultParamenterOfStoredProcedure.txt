@@ -1,5 +1,5 @@
-ALTER   FUNCTION [dbo].[GetDefaultParamenterOfStoredProcedure](@procedureName varchar(200))
-returns @retTable table(name varchar(200),default_value varchar(100),default_remarks varchar(2000))
+CREATE OR ALTER   FUNCTION [dbo].[GetDefaultParamenterOfStoredProcedure](@procedureName varchar(2000))
+returns @retTable table(name varchar(2000),default_value varchar(2000),default_remarks varchar(2000))
 As 
 BEGIN
 --declare @procedureName varchar(200)='DBO.RSP_SALESREPORT_ITEMWISE_DETAIL'
