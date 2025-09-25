@@ -121,4 +121,4 @@
 /OSP_GetSalesOrderForDelivery | 17 SEP 2025
 /OSP_GetGRNListForPurchase.sql | 17 SEP 2025
 /OSP_GetPurchaseOrderForPurchase.sql | 17 SEP 2025
-/vw_OnlinePaymentModes.sql | 25 SEP 2025
+/vw_OnlinePaymentModes.sql | 26 SEP 2025
