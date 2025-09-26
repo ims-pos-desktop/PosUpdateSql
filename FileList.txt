@@ -84,7 +84,7 @@ Menuitem_Delete.txt
 MenuItem_Yield.txt
 MasterDeleteFlag.txt
 ---MULTICURRENCY.txt
-MultiAltUnit_Rate.txt
+MultiAltUnit_Rate.sql
 MultipleRetailPrice.txt
 NepDate.txt
 NepDate1.sql
