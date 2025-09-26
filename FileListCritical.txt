@@ -7,7 +7,6 @@
 /vwTrnMain_AdditionalInfo.txt | 17 MAY 2023
 /fnConvertIn.txt | 17 MAY 2023
 /CBMS_Tables.txt | 28 MAY 2023
-/Reports/VIEW_ANNEX7.txt | 28 MAY 2023
 /vwInactiveInvoices.txt | 28 MAY 2023
 /SettlementModes.txt | 29 MAY 2023
 /KOT_Estimate.sql | 2 JUN 2023
@@ -69,8 +68,6 @@
 /Reports/RSP_DayEndReport.sql | 05 DEC 2023
 /PURPROD_VIEW.sql | 08 DEC 2023
 /Reports/StockValuationReport/RSP_STOCKVALUATION_FIFO.sql | 10 DEC 2023
-/RateGroup/OSP_GetItemAltUnits.sql | 11 DEC 2023
-/Reports/RSP_DUEVOUCHERREPORT.sql | 12 DEC 2023
 /EpaymentStatus.sql | 13 DEC 2023
 /MENUITEM_ECOMMERCE_DETAIL.sql | 14 DEC 2023
 /BARCODE_DETAIL_STAMP.sql | 19 DEC 2023
@@ -122,3 +119,8 @@
 /OSP_GetGRNListForPurchase.sql | 17 SEP 2025
 /OSP_GetPurchaseOrderForPurchase.sql | 17 SEP 2025
 /vw_OnlinePaymentModes.sql | 26 SEP 2025
+/RateGroup/OSP_GetItemAltUnits.sql | 27 SEP 2025
+/MultiAltUnit_Rate.sql | 27 SEP 2025
+/Reports/ANNEX_7/SP_ANNEX7.sql | 27 SEP 2025
+/Reports/ANNEX_7/VIEW_ANNEX7.sql | 27 SEP 2025
+/Reports/RSP_DUEVOUCHERREPORT.sql | 27 SEP 2025

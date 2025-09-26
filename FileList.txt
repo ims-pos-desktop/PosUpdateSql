@@ -133,6 +133,7 @@ RateDiscount.txt
 /RateGroup/OSP_GetItemAltUnits.sql
 /Reports/ANNEX_7/SP_ANNEX7.sql
 /Reports/ANNEX_7/VIEW_ANNEX7.sql
+/Reports/RSP_SHIFTREPORT.sql
 RC_Columns.sql
 ---RDLPRINTING.txt
 ReceipeProd.sql
