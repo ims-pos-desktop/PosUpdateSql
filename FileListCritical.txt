@@ -97,7 +97,6 @@
 /vwBarcode_Detail.sql | 18 FEB 2025
 /RateGroup/OSP_GetItemBatch.sql | 3 MAR 2025
 /RMD_OrderMain.sql | 18 MAR 2025
-/vwMemberProfile.sql | 18 MAR 2025
 /CustomerType.sql | 18 MAR 2025
 /SalesTerminal.sql | 19 MAR 2025
 /KOTTableUpdate.sql | 27 MAR 2025
@@ -119,8 +118,9 @@
 /OSP_GetGRNListForPurchase.sql | 17 SEP 2025
 /OSP_GetPurchaseOrderForPurchase.sql | 17 SEP 2025
 /vw_OnlinePaymentModes.sql | 26 SEP 2025
-/RateGroup/OSP_GetItemAltUnits.sql | 27 SEP 2025
 /MultiAltUnit_Rate.sql | 27 SEP 2025
 /Reports/ANNEX_7/SP_ANNEX7.sql | 27 SEP 2025
 /Reports/ANNEX_7/VIEW_ANNEX7.sql | 27 SEP 2025
 /Reports/RSP_DUEVOUCHERREPORT.sql | 27 SEP 2025
+/vwMemberProfile.sql | 28 SEP 2025
+/RateGroup/OSP_GetItemAltUnits.sql | 28 SEP 2025
