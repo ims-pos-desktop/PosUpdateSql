@@ -113,7 +113,6 @@
 /trnTaxDetails/vwProd_TaxDetails.SQL | AUG 2025
 /SETTINGS.sql | 25 AUG 2025
 /OSP_GetDeliveryList.sql | 03 SEP 2025
-/BarcodePrintVouchers.sql | 15 SEP 2025
 /OSP_GetSalesOrderForDelivery | 17 SEP 2025
 /OSP_GetGRNListForPurchase.sql | 17 SEP 2025
 /OSP_GetPurchaseOrderForPurchase.sql | 17 SEP 2025
@@ -124,3 +123,4 @@
 /Reports/RSP_DUEVOUCHERREPORT.sql | 27 SEP 2025
 /vwMemberProfile.sql | 28 SEP 2025
 /RateGroup/OSP_GetItemAltUnits.sql | 28 SEP 2025
+/BarcodePrintVouchers.sql | 19 SEP 2025
