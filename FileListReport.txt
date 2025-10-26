@@ -165,6 +165,7 @@
 /Reports/SalesPosition/SP_DAILYSALESPOSITION_USERWISE_NEW.txt
 /Reports/SalesPosition/SP_DAILYSALESPOSITION_USERWISE_NEW_DAYWISE.txt
 /Reports/SalesPosition/SP_DAILYSALESPOSITION_USERWISE_NEW_TIMEWISE.txt
+/Reports/SalesPosition/vw_OnlinePaymentModes.sql
 /Reports/SalesReportItemWise/NSP_SALESREPORT_ITEMWISE.sql
 /Reports/SalesReportItemWise/RSP_SALESREPORT_ITEMWISE.txt
 /Reports/SalesReportItemWise/NSP_SALESREPORT_ITEMWISE_DETAIL.txt

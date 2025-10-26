@@ -116,7 +116,7 @@
 /OSP_GetSalesOrderForDelivery | 17 SEP 2025
 /OSP_GetGRNListForPurchase.sql | 17 SEP 2025
 /OSP_GetPurchaseOrderForPurchase.sql | 17 SEP 2025
-/vw_OnlinePaymentModes.sql | 26 SEP 2025
+/Reports/SalesPosition/vw_OnlinePaymentModes.sql | 26 SEP 2025
 /MultiAltUnit_Rate.sql | 27 SEP 2025
 /Reports/ANNEX_7/SP_ANNEX7.sql | 27 SEP 2025
 /Reports/ANNEX_7/VIEW_ANNEX7.sql | 27 SEP 2025
