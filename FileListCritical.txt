@@ -72,7 +72,6 @@
 /MENUITEM_ECOMMERCE_DETAIL.sql | 14 DEC 2023
 /BARCODE_DETAIL_STAMP.sql | 19 DEC 2023
 /Membership.sql | 20 NOV 2023
-/vwCustomerProfile.sql | 20 DEC 2023
 /PaymentModeOrder.sql | 24 DEC 2024
 /UserProfiles.sql | 25 DEC 2024
 /USERPROFILESABB.sql | 26 DEC 2024
@@ -97,7 +96,6 @@
 /vwBarcode_Detail.sql | 18 FEB 2025
 /RateGroup/OSP_GetItemBatch.sql | 3 MAR 2025
 /RMD_OrderMain.sql | 18 MAR 2025
-/CustomerType.sql | 18 MAR 2025
 /SalesTerminal.sql | 19 MAR 2025
 /KOTTableUpdate.sql | 27 MAR 2025
 /NepDate1.sql | 27 MAR 2025
@@ -124,3 +122,5 @@
 /vwMemberProfile.sql | 28 SEP 2025
 /RateGroup/OSP_GetItemAltUnits.sql | 28 SEP 2025
 /BarcodePrintVouchers.sql | 19 SEP 2025
+/CustomerType.sql | 01 NOV 2025
+/vwCustomerProfile.sql | 01 NOV 2025
