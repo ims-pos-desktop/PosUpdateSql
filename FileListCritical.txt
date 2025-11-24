@@ -123,4 +123,4 @@
 /RateGroup/OSP_GetItemAltUnits.sql | 28 SEP 2025
 /BarcodePrintVouchers.sql | 19 SEP 2025
 /CustomerType.sql | 01 NOV 2025
-/vwCustomerProfile.sql | 01 NOV 2025
+/vwCustomerProfile.sql | 15 NOV 2025
