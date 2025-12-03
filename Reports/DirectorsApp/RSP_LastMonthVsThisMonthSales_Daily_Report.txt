@@ -7,6 +7,9 @@ SET NOCOUNT ON;
 DECLARE @DATE1 DATE
 SELECT @DATE1 = GETDATE()
 
+DECLARE @DAYEND INT
+SELECT @DAYEND = ENABLECOMPULSORYDAYEND  FROM SETTING
+
 declare @thismonthstart date,@prevmonthstart date,@thiscount int,@max int
 SELECT @thiscount=DAY(EOMONTH(@DATE1))
 select @thismonthstart=dateadd(day,@thiscount-(day(@DATE1)),@DATE1)
@@ -34,7 +37,7 @@ select cast(DAY_OF_MONTH as varchar(10)) Day,'+@cols1+' from
 	SELECT isnull(sum(IIF(left(tm.VCHRNO ,2) in (''RE'', ''CN''),-1,1) * (tp.AMOUNT-tp.DISCOUNT)),0) SALES,
 	DAY_OF_MONTH,Month FROM RMD_trnmain tm
     join RMD_TRNPROD tp on tm.VCHRNO = tp.VCHRNO
-    right join #date d on d.Daterange=cast(tm.TRNDATE as date) 
+    right join #date d on d.Daterange=cast(IIF(' + CAST(@DAYEND AS varchar(10)) + ' = 0, tm.TRNDATE, tm.TRN_DATE) as date)
 	WHERE TM.DIVISION LIKE '''+@DIV+''' AND TM.VoucherType IN (''SI'',''TI'',''CN'')
     group by Daterange,DAY_OF_MONTH,Month
 )as source_table

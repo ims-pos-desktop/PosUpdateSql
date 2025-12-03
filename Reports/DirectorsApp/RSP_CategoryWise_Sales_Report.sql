@@ -7,13 +7,16 @@ AS
 set nocount on;
 --SELECT @date1= '2023-08-01', @date2='2023-09-17', @DIV = '%';
 
+DECLARE @DAYEND INT
+SELECT @DAYEND = ENABLECOMPULSORYDAYEND  FROM SETTING
+
 SELECT MI.MCAT1 category,  CONVERT(DECIMAL(18,2), SUM(IIF(a.VoucherType IN ('RE','CN'), -1, 1) * A.totalSales))  totalSales
 FROM
 (
 	SELECT TP.MCODE, TM.VoucherType, SUM(TP.NETAMOUNT) totalSales
 		FROM SALES_TRNMAIN TM WITH (NOLOCK)
 		JOIN SALES_TRNPROD TP WITH (NOLOCK) ON TM.VCHRNO = TP.VCHRNO --AND TM.VoucherType = TP.VoucherType
-	WHERE TRNDATE between @date1 and @date2 and tm.DIVISION  LIKE @DIV --AND TM.VoucherType IN ('SI','TI','CN','RE')
+	WHERE IIF(@DAYEND = 0 , TRNDATE , TRN_DATE) between @date1 and @date2 and tm.DIVISION  LIKE @DIV --AND TM.VoucherType IN ('SI','TI','CN','RE')
 	GROUP BY TP.MCODE, TM.VoucherType
 ) A
 JOIN MENUITEM MI ON A.MCODE = MI.MCODE
