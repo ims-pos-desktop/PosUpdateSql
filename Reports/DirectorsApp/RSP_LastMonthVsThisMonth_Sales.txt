@@ -31,7 +31,7 @@ SELECT @cols = STUFF((SELECT  ',' + QUOTENAME( [MONTH])
 set @query='select ''Week''+cast(WEEK_OF_MONTH as varchar(10)) Week,'+@cols1+' from(
             SELECT isnull(sum(case when left(tm.VCHRNO ,2) in (''RE'', ''CN'') then (tp.AMOUNT-tp.DISCOUNT)*-1 else (tp.AMOUNT-tp.DISCOUNT) end),0) SALES,WEEK_OF_MONTH,Month FROM RMD_trnmain tm
             join RMD_TRNPROD tp on tm.VCHRNO = tp.VCHRNO and tm.DIVISION = tp.DIVISION and tm.PhiscalID = tp.PhiscalID
-            right join #date d on d.Daterange=cast(IIF(' + CAST(@DAYEND AS varchar(10)) + ' = 0, tm.TRNDATE, tm.TRN_DATE) as date) WHERE TM.DIVISION LIKE '''+@DIV+''' AND TM.VoucherType IN (''SI'',''TI'',''CN'')
+            right join #date d on d.Daterange=cast('+ IIF (@DAYEND = 0 , 'tm.TRNDATE', 'tm.TRN_DATE') + ' as date) WHERE TM.DIVISION LIKE '''+@DIV+''' AND TM.VoucherType IN (''SI'',''TI'',''CN'')
             group by Daterange,WEEK_OF_MONTH,Month)as source_table
         	PIVOT (sum(SALES) for [MONTH] in (' + @cols + '))as pivot_table'
 --print @query
