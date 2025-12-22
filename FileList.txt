@@ -162,8 +162,6 @@ RMD_TRNPROD_FN.sql
 RMD_TRNPROD_STATUS.txt
 ---RMD_TRNTRAN.txt
 RMD_TRNTRAN_FN.txt
-SALES_TRNMAIN.txt
-SALES_TRNPROD.txt
 CompatView/SALES_TRNPROD_SUMMARY.sql
 SalesMan.sql
 SchemeScheduleView.txt
