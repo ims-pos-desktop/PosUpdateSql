@@ -8,7 +8,7 @@ as
 	SET @DATE1 = DATEADD(d, -29,@DATE2)
 
 	DECLARE @DAYEND INT
-	SELECT @DAYEND = ENABLECOMPULSORYDAYEND  FROM SETTING
+	SELECT @DAYEND = ENABLECOMPULSORYDAYEND  FROM SETTING
 
 	select  cast(IIF(@DAYEND = 0 , tm.TRNDATE , tm.TRN_DATE) as date) TRNDATE,
 	case when ISNULL(rts.TAKEAWAY, 0)=0 then (case when left(tm.VCHRNO ,2) in ('RE') then (tp.AMOUNT-tp.DISCOUNT)*-1 else (tp.AMOUNT-tp.DISCOUNT) end) else 0 end  dine_in_sales,
