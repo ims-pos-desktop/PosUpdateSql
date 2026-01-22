@@ -7,9 +7,11 @@ CREATE TABLE scannedLog(
 	sessionId int NOT NULL,
 	entryNo INT NOT NULL,
 	mcode varchar(25) NOT NULL,
+	barcode varchar(50) NULL,
+	unit varchar(50) NULL,
 	quantity numeric(18, 3) NOT NULL,
 	rate [decimal](20, 12) NOT NULL,
-	CONSTRAINT FK_ScannedLog_User FOREIGN KEY (trnUser) REFERENCES UserProfiles(UNAME),
+	--CONSTRAINT FK_ScannedLog_User FOREIGN KEY (trnUser) REFERENCES UserProfiles(UNAME),
 	CONSTRAINT FK_ScannedLog_MenuItem FOREIGN KEY (mcode) REFERENCES MENUITEM(MCODE),
 	CONSTRAINT FK_ScannedLog_Session FOREIGN KEY (sessionId) REFERENCES SESSION(SessionID),
 );
