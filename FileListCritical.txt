@@ -124,3 +124,4 @@
 /BarcodePrintVouchers.sql | 19 SEP 2025
 /CustomerType.sql | 01 NOV 2025
 /vwCustomerProfile.sql | 15 NOV 2025
+/scannedLog.sql | 16 NOV 2025
