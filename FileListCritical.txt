@@ -95,7 +95,6 @@
 /vwBarcode_Detail.sql | 18 FEB 2025
 /RateGroup/OSP_GetItemBatch.sql | 3 MAR 2025
 /RMD_OrderMain.sql | 18 MAR 2025
-/SalesTerminal.sql | 19 MAR 2025
 /KOTTableUpdate.sql | 27 MAR 2025
 /NepDate1.sql | 27 MAR 2025
 /getPrintFormat_Order.SQL | 01 APR 2025
@@ -125,3 +124,4 @@
 /vwCustomerProfile.sql | 15 NOV 2025
 /scannedLog.sql | 18 NOV 2025
 /PrintFormat.sql | 18 JAN 2025
+/SalesTerminal.sql | 15 MAR 2026
