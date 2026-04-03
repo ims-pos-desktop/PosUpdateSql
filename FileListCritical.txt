@@ -125,3 +125,5 @@
 /scannedLog.sql | 18 NOV 2025
 /PrintFormat.sql | 18 JAN 2025
 /SalesTerminal.sql | 15 MAR 2026
+/DateFormat.sql | 01 APR 2026
+/PrintConfig.sql | 01 APR 2026
