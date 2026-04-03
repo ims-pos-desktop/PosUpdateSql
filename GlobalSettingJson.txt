@@ -68,4 +68,5 @@
 ,{"SettingColumn": "ItemWiseWarehouse","DisplayText": "Enable Item Wise Default Warehouse.","Description": "Overwrite System/UI Warehouse if warehouse is set on item.","DataType": "Bool","options": []}
 ,{"SettingColumn": "QueryTimeout","DisplayText": "SQL Server Query Execution Timeout.","Description": "Time in seconds before timeout error is shown if query execution takes too long.","DataType": "Text","options": []}
 ,{"SettingColumn": "PanValidationRegEx","DisplayText": "Pan/Vat No Validation Regular Expression","Description": "Regular Expression to validate PAN/VAT number dynamically","DataType": "Text","options": []}
+,{"SettingColumn":"NDATEFORMAT","DisplayText":"Date Format","Description":"Date Format that is displayed across the application","DataType":"DropDown","options":[{"value":"MM/dd/yyyy","key":"01/15/2000"},{"value":"dd/MM/yyyy","key":"15/01/2000"},{"value":"yyyy-MM-dd","key":"2000-01-15"},{"value":"dd MMM yyyy","key":"15 JAN 2025"}]}
 ]
