@@ -111,7 +111,6 @@
 /OSP_GetDeliveryList.sql | 03 SEP 2025
 /OSP_GetSalesOrderForDelivery | 17 SEP 2025
 /OSP_GetGRNListForPurchase.sql | 17 SEP 2025
-/OSP_GetPurchaseOrderForPurchase.sql | 17 SEP 2025
 /Reports/SalesPosition/vw_OnlinePaymentModes.sql | 26 SEP 2025
 /MultiAltUnit_Rate.sql | 27 SEP 2025
 /Reports/ANNEX_7/SP_ANNEX7.sql | 27 SEP 2025
@@ -128,3 +127,4 @@
 /DateFormat.sql | 01 APR 2026
 /PrintConfig.sql | 01 APR 2026
 /FoodStampFreeItems.sql | 02 APR 2026
+/OSP_GetPurchaseOrderForPurchase.sql | 03 APR 2026

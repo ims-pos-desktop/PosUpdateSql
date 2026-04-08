@@ -1,12 +1,12 @@
---CREATE OR ALTER PROC OSP_GetPurchaseOrderForPurchase
-DECLARE
+CREATE OR ALTER PROC OSP_GetPurchaseOrderForPurchase
+--DECLARE
 @supplier VARCHAR(25),
 @Today DATE,
 @DIVISION VARCHAR(20),
 @ForGrn BIT = 0
---AS
+AS
 
-SELECT @supplier = 'PA131', @Today = '2025-01-01', @DIVISION = 'SBP', @ForGrn = 0
+--SELECT @supplier = 'PA131', @Today = '2025-01-01', @DIVISION = 'SBP', @ForGrn = 0
 
 DROP TABLE IF EXISTS #PURCHASEORDERS
 DROP TABLE IF EXISTS #GRNRECEIPTS
