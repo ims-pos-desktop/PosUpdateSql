@@ -239,3 +239,4 @@
 /Reports/RSP_DUEVOUCHERREPORT.sql
 /Reports/vwVoucherLedgerParticulars.sql
 /vwPartyHierarchy.sql
+/Reports/SP_CUSTOMER_ENTRY.sql
