@@ -128,3 +128,4 @@
 /PrintConfig.sql | 01 APR 2026
 /FoodStampFreeItems.sql | 02 APR 2026
 /OSP_GetPurchaseOrderForPurchase.sql | 05 APR 2026
+/OSP_GetStockDetail.sql | 06 APR 2026
