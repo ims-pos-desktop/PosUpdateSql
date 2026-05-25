@@ -1,6 +1,6 @@
-CREATE OR ALTER   PROC SP_GetAllSchemes
+CREATE OR ALTER PROC SP_GetAllSchemes
 --DECLARE 
-@JSON VARCHAR(5000)
+@JSON VARCHAR(5000) = ''
 , @MemberScheme VARCHAR(50) = ''
 , @DIVISION VARCHAR(3) = '%'
 , @TENDERMODE VARCHAR(50) = ''
@@ -10,26 +10,33 @@ SET NOCOUNT ON
 IF OBJECT_ID('TEMPDB..#ITEMS') IS NOT NULL DROP TABLE #ITEMS
 IF OBJECT_ID('TEMPDB..#SCHEME') IS NOT NULL DROP TABLE #SCHEME
 
-SELECT A.* INTO #ITEMS FROM OPENJSON(@JSON) 
-CROSS APPLY OPENJSON(VALUE) 
-WITH
-(
-	MCODE VARCHAR(25) '$.MCODE',
-	BC VARCHAR(25) '$.BC',
-	BATCH VARCHAR(25) '$.BATCH',
-	ALTUNIT VARCHAR(25) '$.ALTUNIT',
-	SNO SMALLINT '$.SNO'
-	--,CRATE NUMERIC(18,8) '$.CRATE'
-	--,RATE NUMERIC(18,8) '$.RATE'
-) A
+CREATE TABLE #ITEMS (MCODE VARCHAR(25), BC VARCHAR(25), BATCH VARCHAR(25), ALTUNIT VARCHAR(25),SNO SMALLINT)
+
+IF @JSON <> ''
+	INSERT INTO #ITEMS
+	SELECT A.* FROM OPENJSON(@JSON)
+	WITH
+	(
+		MCODE VARCHAR(25) '$.MCODE',
+		BC VARCHAR(25) '$.BC',
+		BATCH VARCHAR(25) '$.BATCH',
+		ALTUNIT VARCHAR(25) '$.ALTUNIT',
+		SNO SMALLINT '$.SNO'
+		--,CRATE NUMERIC(18,8) '$.CRATE'
+		--,RATE NUMERIC(18,8) '$.RATE'
+	) A
+ELSE 
+	INSERT INTO #ITEMS
+	SELECT MCODE, '','',BASEUNIT,0 FROM MENUITEM WHERE TYPE = 'A' AND IsActive = 1 AND Discontinue = 0
 
 SELECT a.DisID schemeID, ISNULL(ISNULL(C.mcode, P.MCODE),M.MCODE) MCODE,C.disrate SchemeDisRate,C.disamount SchemeDisAmount,a.comboid,a.schemename,1 MinQty,a.SchemeType, 1 IsLoyalty, a.TenderMode, a.MaxDiscount
+,b.DateStart start_date, b.DateEnd end_date, b.TimeStart start_time, b.TimeEnd end_time, b.dayOfWeek
 INTO #SCHEME FROM Discount_Rate A 
 INNER JOIN vwSchemeSchedule b on a.ScheduleID =b.DisID
 INNER JOIN discount_SchemeDiscount c on a.DisID  = c.disid 
 JOIN MEMBERSCHEME MS ON MS.SCHEMEID = a.schemetype
 LEFT join menuitem P on P.Parent = c.PARENT
-LEFT join menuitem M on M.MGROUP = c.MGroup  
+LEFT join menuitem M on M.MGROUP = c.MGroup
 LEFT JOIN MENUITEM I ON I.MCODE = C.Mcode
 --where (c.mcode   = @CODE OR ISNULL(P.MCODE, '') = @CODE OR ISNULL(M.MCODE, '') = @CODE)
 WHERE ((@DIVISION ='%' OR isnull(a.divisions,'') like '%') or (@DIVISION <> '%' and @division in  (select * from split(a.divisions,',')))) 
@@ -42,6 +49,7 @@ AND MS.SCHEMEID = @MemberScheme
 UNION ALL
 
 SELECT a.DisID schemeID, ISNULL(ISNULL(C.mcode, P.MCODE),M.MCODE) MCODE,C.disrate SchemeDisRate,C.disamount SchemeDisAmount,a.comboid,a.schemename,1 MinQty, A.SchemeType, 0 IsLoyalty, a.TenderMode, a.MaxDiscount
+,b.DateStart start_date, b.DateEnd end_date, b.TimeStart start_time, b.TimeEnd end_time, b.dayOfWeek
 FROM Discount_Rate A 
 INNER JOIN vwSchemeSchedule b on a.ScheduleID =b.DisID
 INNER JOIN discount_SchemeDiscount c on a.DisID  = c.disid 
@@ -59,7 +67,9 @@ AND MS.SCHEMEID IS NULL
 
 UNION ALL
 
-select a.DisID,c.mcode,c.disrate,c.disamount,a.comboid,a.schemename,c.Quantity MinQty,a.SchemeType, 0 IsLoyalty, a.TenderMode, a.MaxDiscount from Discount_Rate a 
+select a.DisID,c.mcode,c.disrate,c.disamount,a.comboid,a.schemename,c.Quantity MinQty,a.SchemeType, 0 IsLoyalty, a.TenderMode, a.MaxDiscount 
+,b.DateStart start_date, b.DateEnd end_date, b.TimeStart start_time, b.TimeEnd end_time, b.dayOfWeek
+from Discount_Rate a 
 inner join vwSchemeSchedule b on a.ScheduleID=b.DisID
 inner join discount_combolist c on a.DisID  = c.disid  
 inner join menuitem d on c.mcode = d.MCODE
@@ -70,7 +80,9 @@ AND ((@DIVISION ='%' OR isnull(a.divisions,'') = '') or (@DIVISION <> '%' and @d
 
 union
 
-select a.DisID,c.mcode,C.disrate,C.disamount,a.comboid,a.schemename,a.quantity MinQty,a.SchemeType, 0 IsLoyalty, a.TenderMode, a.MaxDiscount from Discount_Rate a 
+select a.DisID,c.mcode,C.disrate,C.disamount,a.comboid,a.schemename,C.quantity MinQty,a.SchemeType, 0 IsLoyalty, a.TenderMode, a.MaxDiscount 
+,b.DateStart start_date, b.DateEnd end_date, b.TimeStart start_time, b.TimeEnd end_time, b.dayOfWeek
+from Discount_Rate a 
 inner join vwSchemeSchedule b on a.ScheduleID=b.DisID
 inner join discount_ifAnyItemsList c on a.DisID  = c.disid 
 inner join menuitem d on c.mcode = d.MCODE
@@ -81,8 +93,9 @@ AND (ISNULL(A.TenderMode,'') = '' OR A.TenderMode = @TENDERMODE)
 AND ((@DIVISION ='%' OR isnull(a.divisions,'') = '') 
 or (@DIVISION <> '%' and @division in  (select * from split(a.divisions,','))))
 
+
 SELECT S.*, O.SchemeOrder [Priority], O.CanStackOnManualDiscount, O.CanStackOnPrevScheme, O.CanStackNextScheme FROM #ITEMS I JOIN #SCHEME S ON I.MCODE = S.MCODE 
-JOIN vwSchemePriority O ON S.SchemeType = O.SchemeType AND S.schemeID = O.SchemeId
+LEFT JOIN vwSchemePriority O ON S.SchemeType = O.SchemeType AND S.schemeID = O.SchemeId
 ORDER BY  O.SchemeOrder
 
 SET NOCOUNT OFF

@@ -165,6 +165,8 @@ RMD_TRNTRAN_FN.txt
 CompatView/SALES_TRNPROD_SUMMARY.sql
 SalesMan.sql
 scannedLog.sql
+SchemePriority.sql
+vwSchemePriority.sql
 SchemeScheduleView.txt
 SalesTerminal.sql
 SCHEMESAPPLIED_PROD.txt
