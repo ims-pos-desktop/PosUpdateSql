@@ -1,29 +1,52 @@
- CREATE OR ALTER PROCEDURE RSP_PromotionSalesReport
-        @DATE1 DATETIME,
-		@DATE2 DATETIME
- AS
-SET NOCOUNT ON;
---declare @DATE1 DATETIME='2020-1-1',@DATE2 DATETIME='2020-8-30'
-  
-SELECT D.NAME Branch, CAST(tm.TRNDATE AS DATE) [Bill Date], tm.BSDATE [Bill Miti], tm.VCHRNO [Bill Number], MG.DESCA [Main Group], PG.DESCA [Parent Group], mi.MCAT [Item Category],mi.MENUCODE [Item Code],MI.DESCA [Item Name],tp.BC Barcode ,
-		CONVERT(NUMERIC(18,2),case when MI.vat = 1 then rate * 1.13 else rate end) MRP,
-        case when tm.VoucherType in ('SI','TI') then RealQty else -1 * REALQTY_IN  end [Sales Qty],null [Promotion MRP],
-		schemeName AS [Promotion Name], 
-		CONVERT(NUMERIC(18,2), CASE WHEN TM.VoucherType IN ('SI', 'TI') THEN tp.PROMOTION ELSE -1 * TP.PROMOTION END) [Promotion Discount Amount],
-		CONVERT(NUMERIC(18,2), CASE WHEN TM.VoucherType IN ('SI', 'TI') THEN tp.LOYALTY ELSE -1 * TP.LOYALTY END) [Loyalty Discount Amount],tm.BILLTO  [Party Name]
-FROM RMD_SALESPROD tp WITH (NOLOCK)
-	cross apply	(
-				select string_agg(cast('' as nvarchar(max)) + N , ' || ') schemeName 
-				from openjson(tp.SCHEMESAPPLIED) with (N nvarchar(255) , T nvarchar(255)) a
-				where T in ('scheme','Ncell Loyalty','Loyalty')
-				) scheme
-	join RMD_trnmain tm WITH (NOLOCK) on tm.VCHRNO=tp.VCHRNO
-    JOIN MENUITEM mi WITH (NOLOCK) on mi.MCODE=tp.MCODE
-	JOIN MENUITEM MG WITH (NOLOCK) ON MI.MGROUP = MG.MCODE
-	JOIN MENUITEM PG WITH (NOLOCK) ON MI.PARENT = PG.MCODE
-	JOIN DIVISION D WITH (NOLOCK) ON TM.DIVISION = D.INITIAL
-WHERE tm.VoucherType in ('SI','TI','CN') 
-AND NULLIF(scheme.schemeName,'') is not null
-AND TM.TRNDATE BETWEEN @DATE1 AND @DATE2
-ORDER BY TRNDATE,TRNTIME
+create or alter procedure [dbo].[RSP_PromotionSalesReport]
+--declare
+	@DATE1 datetime,
+	@DATE2 datetime
+as
 
+set nocount on;
+
+/*
+select @DATE1 = '2026-06-01' , @DATE2 = '2026-08-30'
+--*/
+
+
+drop table if exists #sales_data;
+
+select
+	tm.trndate , tm.trntime , tm.bsdate , tm.division , tm.vchrno , tm.vouchertype , tm.billto , 
+	tp.mcode , tp.bc , tp.realqty , tp.realqty_in , tp.rate , tp.schemesapplied , tp.promotion , tp.loyalty , tp.remarks , 
+	iif(tm.vouchertype = 'CN' , -1.00 , 1.00) multiplier
+into #sales_data
+from rmd_trnmain tm with (nolock)
+join rmd_salesprod tp with (nolock) on tm.VCHRNO = tp.vchrno
+where tm.trndate between @DATE1 and @DATE2 and tm.vouchertype in ('SI','TI','CN')
+and tp.SCHEMESAPPLIED is not null;
+
+
+select 
+	d.name Branch, 
+	cast(a.trndate as date) [Bill Date] , a.bsdate [Bill Miti] , a.vchrno [Bill Number] , 
+	mg.desca [Main Group] , pg.desca [Parent Group] , mi.mcat [Item Category] , mi.menucode [Item Code] , mi.desca [Item Name] , a.bc Barcode , 
+	convert(numeric(18,2), IIF(mi.vat = 1 , rate * 1.13 , rate)) MRP , 
+	(a.realqty - realqty_in) [Sales Qty] , null [Promotion MRP] , 
+	schemename AS [Promotion Name] , a.remarks [Offer Code] , 
+	convert(numeric(18,2), a.multiplier * a.promotion) [Promotion Discount Amount], convert(numeric(18,2), a.multiplier * a.loyalty) [Loyalty Discount Amount] , 
+	a.billto  [Party Name]
+from #sales_data a with (nolock)
+	cross apply	(
+				select string_agg(cast('' as nvarchar(max)) + N , ' || ') schemename 
+				from openjson(a.schemesapplied) with (N nvarchar(255) , T nvarchar(255)) a
+				where T in ('scheme','ncell loyalty','loyalty')
+				) scheme
+	Join menuitem mi with (nolock) on mi.mcode = a.mcode
+	join menuitem mg with (nolock) on mi.mgroup = mg.mcode
+	join menuitem pg with (nolock) on mi.parent = pg.mcode
+	join division d with (nolock) on a.division = d.initial
+where nullif(scheme.schemename,'') is not null
+order by trndate,trntime;
+
+
+drop table if exists #sales_data;
+
+set nocount on;
