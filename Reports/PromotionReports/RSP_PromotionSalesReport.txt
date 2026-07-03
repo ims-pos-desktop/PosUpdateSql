@@ -1,7 +1,8 @@
 create or alter procedure [dbo].[RSP_PromotionSalesReport]
 --declare
 	@DATE1 datetime,
-	@DATE2 datetime
+	@DATE2 datetime,
+	@DIVISION varchar(3) = '%'
 as
 
 set nocount on;
@@ -21,6 +22,7 @@ into #sales_data
 from rmd_trnmain tm with (nolock)
 join rmd_salesprod tp with (nolock) on tm.VCHRNO = tp.vchrno
 where tm.trndate between @DATE1 and @DATE2 and tm.vouchertype in ('SI','TI','CN')
+and (@DIVISION = '%' or tm.division = @DIVISION)
 and tp.SCHEMESAPPLIED is not null;
 
 
