@@ -96,7 +96,6 @@
 /RateGroup/OSP_GetItemBatch.sql | 3 MAR 2025
 /RMD_OrderMain.sql | 18 MAR 2025
 /KOTTableUpdate.sql | 27 MAR 2025
-/NepDate1.sql | 27 MAR 2025
 /getPrintFormat_Order.SQL | 01 APR 2025
 /tblUserWorkingLog.sql | 02 APR 2025
 /SETTINGS.sql | 22 MAY 2025
@@ -104,7 +103,6 @@
 /UserProfiles.sql | 11 JUL 2025
 /Reports/RecipeReport/OSP_GetReceipeConsumptionList.sql | 11 JUL 2025
 /Reports/RecipeReport/RSP_PendingConsumptionStockDetail.sql | 11 JUL 2025
-/FiscalYearUpdate.sql | 19 JUL 2025
 /trnTaxDetails/trnTaxDetails.sql | 13 AUG 2025
 /trnTaxDetails/vwProd_TaxDetails.SQL | AUG 2025
 /SETTINGS.sql | 25 AUG 2025
@@ -129,3 +127,5 @@
 /FoodStampFreeItems.sql | 02 APR 2026
 /OSP_GetPurchaseOrderForPurchase.sql | 05 APR 2026
 /OSP_GetStockDetail.sql | 06 APR 2026
+/FiscalYearUpdate.sql | 17 JUL 2026
+/NepDate1.sql | 17 JUL 2025
