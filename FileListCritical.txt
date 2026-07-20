@@ -128,4 +128,5 @@
 /OSP_GetPurchaseOrderForPurchase.sql | 05 APR 2026
 /OSP_GetStockDetail.sql | 06 APR 2026
 /FiscalYearUpdate.sql | 17 JUL 2026
-/NepDate1.sql | 17 JUL 2025
+/NepDate1.sql | 18 JUL 2026
+/JewelleryDetail.sql | 18 JUL 2026

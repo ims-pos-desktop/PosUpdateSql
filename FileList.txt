@@ -70,6 +70,7 @@ INVMAIN_TMP.txt
 /InterestCalculation/OSP_CalculateInterest.txt
 /InterestCalculation/vawDueVoucher.txt
 ItemWiseCostCenter.txt
+JewelleryDetail.sql
 KOT_Estimate.sql
 KOTCATEGORY.txt
 kotProd_ChoiceItems.sql
