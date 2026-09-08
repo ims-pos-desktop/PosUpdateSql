@@ -130,3 +130,4 @@
 /FiscalYearUpdate.sql | 17 JUL 2026
 /NepDate1.sql | 18 JUL 2026
 /JewelleryDetail.sql | 18 JUL 2026
+/EcommerceRequiredColumns.txt | 08 SEP 2026
