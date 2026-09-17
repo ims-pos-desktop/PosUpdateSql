@@ -1,21 +1,23 @@
-CREATE OR ALTER  PROCEDURE [dbo].[SP_GETLOYALTYDISCOUNT] @CODE VARCHAR(20), @DIVISION CHAR(3) = ''
+CREATE OR ALTER   PROCEDURE [dbo].[SP_GETLOYALTYDISCOUNT] 
+--DECLARE
+	@CODE VARCHAR(20) , 
+	@DIVISION CHAR(3) = ''
+
 AS
+
+/*
+SELECT @code=N'M1602' , @DIVISION=N'BSP'
+--*/
+
 SET NOCOUNT ON
---DECLARE @CODE VARCHAR(20), @DIVISION VARCHAR(3) = 'MMM'
---SET @CODE='M5374'  
-SELECT a.DisID schemeID, ISNULL(ISNULL(C.mcode, P.MCODE),M.MCODE) MCODE,C.disrate SchemeDisRate,C.disamount SchemeDisAmount,a.comboid,a.schemename,
-a.priority,1 MinQty,a.SchemeType, a.IntervalLimitBy,a.LimitIntervalReset, a.IntervalLimitAmount, a.IntervalLimitQty, a.IsActive 
-FROM Discount_Rate a 
-	inner join vwSchemeSchedule b on a.ScheduleID=b.DisID
-	inner join discount_SchemeDiscount c on a.DisID  = c.disid 
-	JOIN MEMBERSCHEME MS ON MS.SCHEMEID = a.schemetype
-	LEFT join menuitem P on P.Parent = c.PARENT
-	LEFT join menuitem M on M.MGROUP = c.MGroup  
-	LEFT JOIN MENUITEM I ON I.MCODE = C.Mcode
-	where (c.mcode   = @CODE OR ISNULL(P.MCODE, '') = @CODE OR ISNULL(M.MCODE, '') = @CODE)
-	AND ((@DIVISION ='%' OR isnull(a.divisions,'') ='') or (@DIVISION <> '%' and @division in  (select * from split(a.divisions,',')))) 
-	AND ISNULL(P.DISMODE, 'DISCOUNTABLE') = 'DISCOUNTABLE'
-	AND ISNULL(M.DISMODE, 'DISCOUNTABLE') = 'DISCOUNTABLE'
-	AND ISNULL(I.DISMODE, 'DISCOUNTABLE') = 'DISCOUNTABLE'
-	AND  a.IsActive = 1	
-	order by priority
+
+SELECT a.DisID schemeID , i.MCODE , C.disrate SchemeDisRate , C.disamount SchemeDisAmount , a.comboid , a.schemename , a.priority , 1 MinQty , a.SchemeType , a.IntervalLimitBy , a.LimitIntervalReset , a.IntervalLimitAmount , a.IntervalLimitQty , a.IsActive
+FROM MENUITEM I
+INNER JOIN Discount_SchemeDiscount C ON I.MCODE = C.Mcode OR I.PARENT = C.Parent OR I.MGROUP = C.MGroup
+INNER JOIN Discount_Rate A ON C.DisID = A.DisID
+INNER JOIN vwSchemeSchedule B ON A.ScheduleID = B.DisID
+INNER JOIN MEMBERSCHEME MS ON MS.SCHEMEID = A.SchemeType
+WHERE I.MCODE = @CODE AND ISNULL(I.DISMODE , 'DISCOUNTABLE') = 'DISCOUNTABLE'
+AND (@DIVISION = '%' OR isnull(a.divisions,'') = '' OR @DIVISION in (select * from split(a.divisions , ',')))
+AND A.IsActive = 1
+ORDER BY A.Priority
