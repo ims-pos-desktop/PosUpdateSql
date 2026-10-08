@@ -240,4 +240,4 @@ vwVehicleBarcode.sql
 /Reports/RSP_DUEVOUCHERREPORT.sql
 Warehouse.sql
 xPrimaryKeys.txt
-
+SP_GETLOYALTYDISCOUNT.txt
